@@ -35,17 +35,12 @@ public class Day25Task1 {
     }
 
     public static String toSnafu(long decimal) {
-        long v = 1;
-        while (decimal >= v || decimal < 0) {
-            decimal += 2 * v;
-            v *= 5;
-        }
         StringBuilder sb = new StringBuilder();
-        while (v >= 5) {
-            v /= 5;
-            int mul = (int) (decimal / v);
-            decimal -= mul * v;
-            sb.append(switch (mul) {
+        while (decimal != 0) {
+            decimal += 2;
+            int v = Math.floorMod(decimal, 5);
+            decimal = (decimal - v) / 5;
+            sb.insert(0, switch (v) {
                 case 4 -> '2';
                 case 3 -> '1';
                 case 2 -> '0';
