@@ -51,7 +51,7 @@ public class Task2 {
             PosDirAndStreakWithPrice top = border.poll();
             PosDirAndStreak posdirstreak = top.posdirstreak;
             if (posdirstreak.x == width - 1 && posdirstreak.y == height - 1 && posdirstreak.streak >= 4) {
-                System.out.println(top.price);
+                System.out.println("task2: " + top.price);
                 return;
             }
             if (posdirstreak.dir == 0) {
